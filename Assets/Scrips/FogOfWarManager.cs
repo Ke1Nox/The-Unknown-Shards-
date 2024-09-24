@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using UnityEngine;
-
 public class FogOfWarManager : MonoBehaviour
 {
     public GameObject fogOfWarPlane; // El plano o sprite que cubre el mapa con "fog"

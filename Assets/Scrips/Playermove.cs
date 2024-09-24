@@ -13,7 +13,9 @@ public class Playermove : MonoBehaviour
 
     private void Start()
     {
-       PlayerRb = GetComponent<Rigidbody2D>();
+        transform.position = GameManager.instance.playerSpawnPosition;
+
+        PlayerRb = GetComponent<Rigidbody2D>();
         playerAnimator = GetComponent<Animator>();
     }
     private void Update()

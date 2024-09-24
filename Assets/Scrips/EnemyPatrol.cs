@@ -13,7 +13,7 @@ public class EnemyPatrol : MonoBehaviour
     private bool isFacingRight = true;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -34,6 +34,13 @@ public class EnemyPatrol : MonoBehaviour
             Vector3 scale = transform.localScale;
             scale.x *= -1;
             transform.localScale = scale;
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("muerte");
         }
     }
 }
