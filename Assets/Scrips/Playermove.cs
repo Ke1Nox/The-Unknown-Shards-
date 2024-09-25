@@ -38,8 +38,15 @@ public class Playermove : MonoBehaviour
     private void FixedUpdate()
     {
         PlayerRb.MovePosition(PlayerRb.position + (moveInput * Speed * Time.fixedDeltaTime));
+    }
 
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Enemy"))
+        {
+            GameManager.instance.PlayerDied();
+            Debug.Log("Jugador muerto");
+        }
     }
 
 }

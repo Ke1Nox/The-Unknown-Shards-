@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - ActivadorLinterna
+  - Enemy
   layers:
   - Default
   - TransparentFX
