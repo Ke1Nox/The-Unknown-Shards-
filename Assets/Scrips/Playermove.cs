@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Playermove : MonoBehaviour
 {
     [SerializeField] Rigidbody2D PlayerRb;
@@ -46,6 +46,8 @@ public class Playermove : MonoBehaviour
         {
             GameManager.instance.PlayerDied();
             Debug.Log("Jugador muerto");
+
+            SceneManager.LoadScene(0);
         }
     }
 

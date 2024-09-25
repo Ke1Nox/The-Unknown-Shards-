@@ -30,19 +30,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        // Encontrar al jugador al inicio del juego
-        player = GameObject.FindWithTag("Player");
-        if (player != null)
-        {
-            playerRenderer = player.GetComponent<SpriteRenderer>();  // Obtener el SpriteRenderer para efectos visuales
-        }
-        else
-        {
-            Debug.LogError("No se encontró el objeto Player en la escena.");
-        }
-    }
+    //private void Start()
+    //{
+    //    // Encontrar al jugador al inicio del juego
+    //    player = GameObject.FindWithTag("Player");
+    //    if (player != null)
+    //    {
+    //        playerRenderer = player.GetComponent<SpriteRenderer>();  // Obtener el SpriteRenderer para efectos visuales
+    //    }
+    //    else
+    //    {
+    //        Debug.LogError("No se encontró el objeto Player en la escena.");
+    //    }
+    //}
 
     public void SetPlayerSpawnPosition(Vector2 position)
     {
@@ -61,26 +61,26 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void RespawnPlayer()
-    {
-        if (player != null)
-        {
-            // Reubicar al jugador en la posición guardada en el checkpoint
-            player.transform.position = playerSpawnPosition;
+    //void RespawnPlayer()
+    //{
+    //    if (player != null)
+    //    {
+    //        // Reubicar al jugador en la posición guardada en el checkpoint
+    //        player.transform.position = playerSpawnPosition;
 
-            player.SetActive(true); // Reactivar al jugador
+    //        player.SetActive(true); // Reactivar al jugador
 
-            StartCoroutine(Invulnerability()); // Iniciar la invulnerabilidad temporal
+    //        StartCoroutine(Invulnerability()); // Iniciar la invulnerabilidad temporal
 
-            isPlayerDead = false; // Restablecer el estado de muerte
+    //        isPlayerDead = false; // Restablecer el estado de muerte
 
-            Debug.Log("Jugador ha respawneado");
-        }
-        else
-        {
-            Debug.LogError("No se encontró el jugador para respawnear.");
-        }
-    }
+    //        Debug.Log("Jugador ha respawneado");
+    //    }
+    //    else
+    //    {
+    //        Debug.LogError("No se encontró el jugador para respawnear.");
+    //    }
+    //}
 
     //public void RestartScene()
     //{
@@ -88,27 +88,27 @@ public class GameManager : MonoBehaviour
     //}
 
     // Corrutina de invulnerabilidad
-    IEnumerator Invulnerability()
-    {
-        isInvulnerable = true;
-        Debug.Log("Jugador es invulnerable.");
+    //IEnumerator Invulnerability()
+    //{
+    //    isInvulnerable = true;
+    //    Debug.Log("Jugador es invulnerable.");
 
-        float timer = 0;
+    //    float timer = 0;
 
-        while (timer < invulnerableDuration)
-        {
-            playerRenderer.enabled = !playerRenderer.enabled; // Alternar visibilidad
-            timer += 0.2f; // Cambia este valor para ajustar la velocidad del parpadeo
-            yield return new WaitForSeconds(0.2f);
-        }
+    //    while (timer < invulnerableDuration)
+    //    {
+    //        playerRenderer.enabled = !playerRenderer.enabled; // Alternar visibilidad
+    //        timer += 0.2f; // Cambia este valor para ajustar la velocidad del parpadeo
+    //        yield return new WaitForSeconds(0.2f);
+    //    }
 
-        // Asegurarse de que el jugador esté visible al final
-        playerRenderer.enabled = true;
+    //    // Asegurarse de que el jugador esté visible al final
+    //    playerRenderer.enabled = true;
       
 
-        isInvulnerable = false;
-        Debug.Log("Invulnerabilidad terminada.");
-    }
+    //    isInvulnerable = false;
+    //    Debug.Log("Invulnerabilidad terminada.");
+    //}
 
     // Método para chequear si el jugador es invulnerable
     public bool IsPlayerInvulnerable()

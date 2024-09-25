@@ -11,6 +11,24 @@ public class LuzActive : MonoBehaviour
 
     public Transform player;  // Referencia al transform del jugador
 
+    // Referencia a la Sprite Mask
+    public SpriteMask spriteMask;
+
+    // Valores originales de la escala de la máscara
+    private Vector2 originalMaskScale;
+
+    // Escala que tendrá la máscara cuando la linterna esté activa
+    public Vector2 linternaMaskScale = new Vector2(2f, 2f);  // x2 de visión
+
+    void Start()
+    {
+        // Guarda la escala original de la máscara
+        if (spriteMask != null)
+        {
+            originalMaskScale = spriteMask.transform.localScale;
+        }
+    }
+
     void Update()
     {
         // Verifica si la linterna ha sido habilitada y presionas la tecla "1"
@@ -21,12 +39,24 @@ public class LuzActive : MonoBehaviour
             {
                 linternaInstanciada = Instantiate(linternaPrefab, player.position, Quaternion.identity);
                 linternaInstanciada.SetActive(true);  // Activar la linterna al instanciarla
+
+                // Aumentar la visión (cambiar la escala de la máscara)
+                if (spriteMask != null)
+                {
+                    spriteMask.transform.localScale = linternaMaskScale;
+                }
             }
             else
             {
                 // Alterna el estado de activación de la linterna
                 bool isActive = linternaInstanciada.activeSelf;
                 linternaInstanciada.SetActive(!isActive);  // Alternar activación
+
+                // Si la linterna está activa, aumentar la visión, si no, restaurar la visión original
+                if (spriteMask != null)
+                {
+                    spriteMask.transform.localScale = isActive ? originalMaskScale : linternaMaskScale;
+                }
             }
         }
 
@@ -52,6 +82,7 @@ public class LuzActive : MonoBehaviour
         }
     }
 }
+
 
 
 

@@ -15,19 +15,19 @@ public class DoorMananger : MonoBehaviour
         switch (doorNumber)
         {
             case 1.2:
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene(2);
                 GameManager.instance.SetPlayerSpawnPosition(new Vector2(-7, 0)); // Posición en el lado izq
                 break;
             case 2.1:
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene(1);
                 GameManager.instance.SetPlayerSpawnPosition(new Vector2(7, 0)); // Posición en el lado derecho
                 break;
             case 1.3:
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(3);
                 GameManager.instance.SetPlayerSpawnPosition(new Vector2(7, 0));
                 break;
             case 3.1:
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene(1);
                 GameManager.instance.SetPlayerSpawnPosition(new Vector2(-7, 0));
                 break;
             default:
