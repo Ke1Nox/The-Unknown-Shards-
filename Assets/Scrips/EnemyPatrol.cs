@@ -11,7 +11,11 @@ public class EnemyPatrol : MonoBehaviour
     [SerializeField] private float Speed;
 
     private bool isFacingRight = true;
- 
+    void Start()
+    {
+
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -32,22 +36,11 @@ public class EnemyPatrol : MonoBehaviour
             transform.localScale = scale;
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            // Verificar si el jugador es invulnerable antes de aplicar daño
-            if (!GameManager.instance.IsPlayerInvulnerable())
-            {
-                GameManager.instance.PlayerDied();
-                Debug.Log("Enemigo tocó al jugador.");
-            }
-            else
-            {
-                Debug.Log("Jugador es invulnerable, no se aplica daño.");
-            }
+            Debug.Log("muerte");
         }
-   
-        
     }
 }
